@@ -10,11 +10,26 @@
 		echo "Erreur : " . $e->getMessage();
 	}
 
+	// Nom de variable valide => 'ê' est un caractère ASCII (étendu) 234.
 	$requête = $db->query('SHOW TABLES FROM `TP06`');
 	$TABLES = $requête->fetchAll();
 	$requête->closeCursor();
 
-	$table = $_GET['table'] ? $_GET['table'] : NULL;
+	$tid = isset($_GET['table']) ? $_GET['table'] : NULL;
+	if(!is_null($tid) && isset($TABLES[$tid])) {
+		try {
+			$requête = $db->query('SELECT * FROM `' . $TABLES[$tid][0] . '`');
+			$lignes = $requête->fetchAll();
+			$entête = array_keys($lignes[0]);
+			$requête->closeCursor();
+		} catch (Exception $e) {
+			echo $e;
+		}
+	}
+
+	$requête = $db->query('SELECT * FROM `mes_categorie`');
+	$CATÉGORIE = $requête->fetchAll();
+	$requête->closeCursor();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -25,9 +40,32 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-<?php foreach($TABLES as $k => $v) { ?>
-		<a class="btn" href="?table=<?=$k?>"><?=$v[0]?></a>
-<?php } ?>
-	<!-- is_null -->
+		<?php foreach($TABLES as $k => $v) { ?>
+			<a class="btn" href="?table=<?=$k?>"><?=$v[0]?></a>
+		<?php } ?>
+		<?php if(isset($lignes) && isset($entête)) { ?>
+			<table>
+				<thead>
+					<tr>
+						<?php foreach($entête as $k => $v) { ?>
+							<?php if(!is_int($v)) { ?>
+								<th><?=$v?></th>
+							<?php } ?>
+						<?php } ?>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($lignes as $k => $v) {?>
+						<tr>
+							<?php foreach($v as $k => $v) { ?>
+								<?php if(is_int($k)) {?>
+									<td><?=$v?></td>
+								<?php } ?>
+							<?php } ?>
+						</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+		<?php } ?>
 	</body>
 </html>
