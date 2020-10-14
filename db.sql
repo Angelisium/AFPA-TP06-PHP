@@ -8,11 +8,11 @@ CREATE TABLE `TP06`.`mes_categorie` (
 	PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
-INSERT INTO `TP06`.`mes_categorie` (`categorie`, `chemin`, `passwd`) VALUES
-("animaux",		"/Applications/MAMP/htdocs/AFPA-TP06-PHP/images/animaux/",		"ok"),
-("trains",		"/Applications/MAMP/htdocs/AFPA-TP06-PHP/images/trains/",		"passe"),
-("monuments",	"/Applications/MAMP/htdocs/AFPA-TP06-PHP/images/monuments/",	"passepas"),
-("montres",		"/Applications/MAMP/htdocs/AFPA-TP06-PHP/images/montres/",		"lutin");
+INSERT INTO `TP06`.`mes_categorie` (`id`, `categorie`, `chemin`, `passwd`) VALUES
+(1,	"animaux",		"/Applications/MAMP/htdocs/AFPA-TP06-PHP/images/animaux/",		"ok"),
+(2,	"trains",		"/Applications/MAMP/htdocs/AFPA-TP06-PHP/images/trains/",		"passe"),
+(3,	"monuments",	"/Applications/MAMP/htdocs/AFPA-TP06-PHP/images/monuments/",	"passepas"),
+(4,	"montres",		"/Applications/MAMP/htdocs/AFPA-TP06-PHP/images/montres/",		"lutin");
 
 CREATE TABLE `TP06`.`mes_photos` (
 	`id` INT NOT NULL AUTO_INCREMENT,
@@ -26,3 +26,13 @@ CREATE TABLE `TP06`.`mes_photos` (
 	PRIMARY KEY (`id`),
 	CONSTRAINT `in_categorie` FOREIGN KEY (`categorie`) REFERENCES `mes_categorie`(`id`)
 ) ENGINE = InnoDB;
+
+INSERT INTO `TP06`.`mes_photos` (`nom_photo`, `categorie`, `titre`, `hauteur`, `largeur`, `date`, `liste_mots`) VALUES
+("chat.jpg", 1, "Chat", 390, 640, NULL, NULL),
+("cheval.jpg", 1, "Cheval", 447, 640, NULL, NULL),
+("chien.jpg", 1, "Chien", 426, 640, NULL, NULL),
+("elephant.jpg", 1, "Elephant", 436, 640, NULL, NULL),
+("lion.jpg", 1, "Lion", 404, 640, NULL, NULL),
+("orignal.jpg", 1, "Orignal", 426, 640, NULL, NULL),
+("poisson.jpg", 1, "Poisson", 426, 640, NULL, NULL),
+("raton-laveur.jpg", 1, "Raton-laveur", 409, 640, NULL, NULL);
