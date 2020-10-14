@@ -68,6 +68,9 @@
 			</table>
 		<?php } ?>
 		<form>
+			<?php if(!is_null($tid) && isset($TABLES[$tid])) { ?>
+
+			<?php } ?>
 			<select name="show" id="show">
 				<?php foreach($CATÉGORIES as $k => $v) { ?>
 					<option value="<?=$v['id']?>"><?=$v['categorie']?></option>
