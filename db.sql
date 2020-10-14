@@ -2,6 +2,9 @@ CREATE DATABASE IF NOT EXISTS `TP06`;
 
 CREATE TABLE `TP06`.`mes_categorie` (
 	`id` INT NOT NULL AUTO_INCREMENT,
+	`categorie` VARCHAR(20) BINARY NOT NULL,
+	`chemin` VARCHAR(50) BINARY NOT NULL,
+	`passwd` VARCHAR(20) BINARY NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
@@ -15,5 +18,5 @@ CREATE TABLE `TP06`.`mes_photos` (
 	`date` DATE DEFAULT '1000-01-01',
 	`liste_mots` VARCHAR(100),
 	PRIMARY KEY (`id`),
-	CONSTRAINT `in_categorie` FOREIGN KEY (`categorie`) REFERENCES mes_categorie(id)
+	CONSTRAINT `in_categorie` FOREIGN KEY (`categorie`) REFERENCES `mes_categorie`(`id`)
 ) ENGINE = InnoDB;
