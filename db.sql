@@ -9,10 +9,10 @@ CREATE TABLE `TP06`.`mes_categorie` (
 ) ENGINE = InnoDB;
 
 INSERT INTO `TP06`.`mes_categorie` (`id`, `categorie`, `chemin`, `passwd`) VALUES
-(1,	"animaux",		"/Applications/MAMP/htdocs/AFPA-TP06-PHP/images/animaux/",		"ok"),
-(2,	"trains",		"/Applications/MAMP/htdocs/AFPA-TP06-PHP/images/trains/",		"passe"),
-(3,	"monuments",	"/Applications/MAMP/htdocs/AFPA-TP06-PHP/images/monuments/",	"passepas"),
-(4,	"montres",		"/Applications/MAMP/htdocs/AFPA-TP06-PHP/images/montres/",		"lutin");
+(1,	"animaux",		"/AFPA-TP06-PHP/images/animaux/",		"ok"),
+(2,	"trains",		"/AFPA-TP06-PHP/images/trains/",		"passe"),
+(3,	"monuments",	"/AFPA-TP06-PHP/images/monuments/",		"passepas"),
+(4,	"montres",		"/AFPA-TP06-PHP/images/montres/",		"lutin");
 
 CREATE TABLE `TP06`.`mes_photos` (
 	`id` INT NOT NULL AUTO_INCREMENT,
