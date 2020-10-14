@@ -28,7 +28,7 @@
 	}
 
 	$requête = $db->query('SELECT * FROM `mes_categorie`');
-	$CATÉGORIE = $requête->fetchAll();
+	$CATÉGORIES = $requête->fetchAll();
 	$requête->closeCursor();
 ?>
 <!DOCTYPE html>
@@ -67,5 +67,13 @@
 				</tbody>
 			</table>
 		<?php } ?>
+		<form>
+			<select name="show" id="show">
+				<?php foreach($CATÉGORIES as $k => $v) { ?>
+					<option value="<?=$v['id']?>"><?=$v['categorie']?></option>
+				<?php } ?>
+			</select>
+			<button>Afficher</button>
+		</form>
 	</body>
 </html>
