@@ -1,7 +1,7 @@
 <?php
-	foreach(parse_ini_file("config.ini") as $key => $val) {
-		define($key, $val);
-	} unset($key); unset($val);
+	foreach(parse_ini_file("config.ini") as $k => $v) {
+		define($k, $v);
+	}
 
 	try {
 		$db = new PDO("mysql:host=".DB['HOST'].";dbname=".DB['NAME'], DB['USER'], DB['PASSWORD']);
@@ -22,10 +22,11 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Photo</title>
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 <?php foreach($TABLES as $k => $v) { ?>
-		<a href="?table=<?=$k?>"><?=$v[0]?></a>
+		<a class="btn" href="?table=<?=$k?>"><?=$v[0]?></a>
 <?php } ?>
 	<!-- is_null -->
 	</body>
