@@ -168,6 +168,7 @@
 				<input type="date" name="date" id="date" <?=$value?>>
 				<?php unset($value); ?>
 				<input type="text" name="tags" id="tags">
+				<button class="btn">reset</button>
 				<button class="btn">Afficher</button>
 			</form>
 		</section>
