@@ -3,6 +3,7 @@
 		define($k, $v);
 	}
 
+	# Fonction qui sert à supprimer les paramètre vide de l'URL.
 	function redirige_sans(string $a): void {
 		unset($_GET[$a]);
 		$paramètres = count($_GET)>0 ? '?' : '';
