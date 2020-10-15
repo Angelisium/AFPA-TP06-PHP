@@ -87,7 +87,12 @@
 	}
 
 	# Ajout des filtre par tags
-	$tags = isset($_GET['tags']) ? $_GET['tags'] : NULL;
+	$tags = isset($_GET['tags']) ? preg_replace('#[^a-z ]#', '', $_GET['tags']) : NULL;
+	if(!is_null($tags) && strlen($tags)>0) {
+
+	} elseif(!is_null($tags)) {
+		redirige_sans('tags');
+	}
 
 	# Construction de la requête SQL
 	$filtres = implode(' AND ', $filtres);
@@ -114,6 +119,7 @@
 	</head>
 	<body>
 		<h1>Images</h1>
+		<pre><?=var_export($tags, true)?></pre>
 		<section class="box">
 			<h2>Tables</h2>
 			<div class="group">
