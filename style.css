@@ -18,6 +18,17 @@ body {
 	border: 0;
 }
 
+.box {
+	background: white;
+    border-radius: 2px;
+    box-shadow: 1vw 1vw 3vw -2vw #ffffff4d;
+    padding: min(25px, 2vw) 0;
+    color: #222222;
+    width: min(100vw, 656px);
+    margin: 0 auto;
+    margin-bottom: min(32px, 4vw);
+}
+
 select {
 	border: 0;
 	box-shadow: inset 0 0 1px 0px black;
