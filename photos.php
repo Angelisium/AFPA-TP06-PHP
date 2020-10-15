@@ -92,6 +92,7 @@
 					<input type="hidden" name="table" value="<?=$tid?>">
 				<?php } ?>
 				<select name="show" id="show">
+					<option value="">Catégories</option>
 					<?php foreach($catégories as $k => $v) { ?>
 						<option value="<?=$v['id']?>" <?=($sid == $v['id']) ? 'selected' : ''?>><?=$v['categorie']?></option>
 					<?php } ?>
