@@ -61,19 +61,26 @@
 	$requête->closeCursor();
 
 	# Création de la requête SQL pour l'affichage des images
+	$sql = 'SELECT * FROM `mes_photos`';
+	$filtres = array();
+	$variables = array();
+
 	$sid = isset($_GET['show']) ? intval($_GET['show']) : NULL;
 	if(!is_null($sid) && isset($catégories[$sid-1]) && $catégories[$sid-1]['id'] == $sid) {
-		try {
-			$requête = $db->prepare('SELECT * FROM `mes_photos` WHERE `categorie` = ?');
-			$requête->execute(array($sid));
-			$images = $requête->fetchAll();
-			$requête->closeCursor();
-		} catch (Exception $e) {
-			echo $e->getMessage();
-		}
+		$filtres[] = '`categorie` = :categorie';
+		$variables[':categorie'] = $sid;
 	} elseif(!is_null($sid)) {
 		redirige_sans('show');
 	}
+
+/*try {
+$requête = $db->prepare('SELECT * FROM `mes_photos` WHERE `categorie` = ?');
+$requête->execute(array());
+$images = $requête->fetchAll();
+$requête->closeCursor();
+} catch (Exception $e) {
+echo $e->getMessage();
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="fr">
