@@ -77,6 +77,13 @@
 		redirige_sans('show');
 	}
 
+	# Construction de la requête SQL
+	$filtres = implode(' AND ', $filtres);
+	if(strlen($filtres)>0) {
+		$sql.= ' WHERE ' . $filtres;
+	}
+
+	$test = $sql;
 /*try {
 $requête = $db->prepare('SELECT * FROM `mes_photos` WHERE `categorie` = ?');
 $requête->execute(array());
@@ -96,6 +103,9 @@ echo $e->getMessage();
 	</head>
 	<body>
 		<h1>Images</h1>
+		<section class="box">
+			<pre><?=var_export($test, true)?></pre>
+		</section>
 		<section class="box">
 			<h2>Tables</h2>
 			<div class="group">
