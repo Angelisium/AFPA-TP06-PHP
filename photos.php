@@ -156,20 +156,28 @@
 				<?php if(!is_null($tid) && isset($tables[$tid])) { ?>
 					<input type="hidden" name="table" value="<?=$tid?>">
 				<?php } ?>
-				<select name="show" id="show">
-					<option value="">Catégories</option>
-					<?php foreach($catégories as $k => $v) { ?>
-						<?php $selected = ($sid == $v['id']) ? 'selected' : ''; ?>
-						<option value="<?=$v['id']?>" <?=$selected?>><?=$v['categorie']?></option>
-						<?php unset($selected); ?>
-					<?php } ?>
-				</select>
-				<?php $value = (!is_null($did)) ? 'value="' . $did . '"' : ''; ?>
-				<input type="date" name="date" id="date" <?=$value?>>
-				<?php unset($value); ?>
-				<input type="text" name="tags" id="tags">
-				<button class="btn">reset</button>
-				<button class="btn">Afficher</button>
+				<div class="group">
+					<select name="show" id="show">
+						<option value="">Catégories</option>
+						<?php foreach($catégories as $k => $v) { ?>
+							<?php $selected = ($sid == $v['id']) ? 'selected' : ''; ?>
+							<option value="<?=$v['id']?>" <?=$selected?>><?=$v['categorie']?></option>
+							<?php unset($selected); ?>
+						<?php } ?>
+					</select>
+				</div>
+				<div class="group">
+					<?php $value = (!is_null($did)) ? 'value="' . $did . '"' : ''; ?>
+					<input type="date" name="date" id="date" <?=$value?>>
+					<?php unset($value); ?>
+				</div>
+				<div class="group">
+					<input type="text" name="tags" id="tags">
+				</div>
+				<div class="group">
+					<button class="btn">reset</button>
+					<button class="btn">Afficher</button>
+				</div>
 			</form>
 		</section>
 		<?php if(isset($images)) { ?>
