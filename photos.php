@@ -78,13 +78,14 @@
 	}
 
 	# Ajout d'un filtre par date
-	$did = isset($_GET['date']) ? $_GET['date'] : NULL;
-	if(!is_null($did) && strtotime($did) != false) {
+	$date = isset($_GET['date']) ? $_GET['date'] : NULL;
+	if(!is_null($date) && strtotime($date) != false) {
 		$filtres[] = '`date` = :date';
-		$variables[':date'] = $did;
-	} elseif(!is_null($did)) {
+		$variables[':date'] = $date;
+	} elseif(!is_null($date)) {
 		redirige_sans('date');
 	}
+
 
 	# Construction de la requête SQL
 	$filtres = implode(' AND ', $filtres);
@@ -169,7 +170,7 @@
 				</div>
 				<div class="group">
 					<label for="date">Date :</label>
-					<?php $value = (!is_null($did)) ? 'value="' . $did . '"' : ''; ?>
+					<?php $value = (!is_null($date)) ? 'value="' . $date . '"' : ''; ?>
 					<input type="date" name="date" id="date" <?=$value?>>
 					<?php unset($value); ?>
 				</div>
