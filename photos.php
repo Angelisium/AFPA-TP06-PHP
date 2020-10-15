@@ -19,7 +19,7 @@
 		echo "Erreur : " . $e->getMessage();
 	}
 
-	// Nom de variable valide => 'ê' est un caractère ASCII (étendu) 234.
+	# Nom de variable valide => 'ê' est un caractère ASCII (étendu) 234.
 	$requête = $db->query('SHOW TABLES FROM `TP06`');
 	$tables = $requête->fetchAll();
 	$requête->closeCursor();
