@@ -192,5 +192,6 @@
 				<?php } ?>
 			</section>
 		<?php } ?>
+		<script src="script.js"></script>
 	</body>
 </html>
