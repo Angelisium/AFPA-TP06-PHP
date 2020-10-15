@@ -89,7 +89,9 @@
 						<?php } ?>
 					</tbody>
 				</table>
-				<a class="btn" href="?<?=http_build_query(['table' => 'hide'] + $_GET)?>">hide</a>
+				<div class="group">
+					<a class="btn" href="?<?=http_build_query(['table' => 'hide'] + $_GET)?>">hide</a>
+				</div>
 			<?php } ?>
 		</section>
 		<section class="box">
