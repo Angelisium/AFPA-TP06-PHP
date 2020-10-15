@@ -61,6 +61,9 @@
 	$requête->closeCursor();
 
 	# Création de la requête SQL pour l'affichage des images
+	# $sql => La requêtes SQL au format string
+	# $filtres => La liste des filtres (WHERE)
+	# $variables => Les valeurs associées aux filtres
 	$sql = 'SELECT * FROM `mes_photos`';
 	$filtres = array();
 	$variables = array();
