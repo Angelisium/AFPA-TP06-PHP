@@ -89,7 +89,11 @@
 	# Ajout des filtre par tags
 	$tags = isset($_GET['tags']) ? preg_replace('#[^a-z ]#', '', $_GET['tags']) : NULL;
 	if(!is_null($tags) && strlen($tags)>0) {
-
+		$tags = explode(' ', $tags);
+		foreach($tags as $tag) {
+			$filtres[] = "`liste_mots` LIKE '%" . $tag . "%'";
+		}
+		$tags = implode(' ', $tags);
 	} elseif(!is_null($tags)) {
 		redirige_sans('tags');
 	}
@@ -119,7 +123,6 @@
 	</head>
 	<body>
 		<h1>Images</h1>
-		<pre><?=var_export($tags, true)?></pre>
 		<section class="box">
 			<h2>Tables</h2>
 			<div class="group">
@@ -178,13 +181,15 @@
 				</div>
 				<div class="group">
 					<label for="date">Date :</label>
-					<?php $value = (!is_null($date)) ? 'value="' . $date . '"' : ''; ?>
-					<input type="date" name="date" id="date" <?=$value?>>
+					<?php $value = (!is_null($date)) ? ' value="' . $date . '"' : ''; ?>
+					<input type="date" name="date" id="date"<?=$value?>>
 					<?php unset($value); ?>
 				</div>
 				<div class="group">
 					<label for="date">Tags :</label>
-					<input type="text" name="tags" id="tags">
+					<?php $value = (!is_null($tags)) ? ' value="' . $tags . '"' : ''; ?>
+					<input type="text" name="tags" id="tags"<?=$value?>>
+					<?php unset($value); ?>
 				</div>
 				<div class="group">
 					<button data-reset="date" class="btn">Supprimer la date</button>
