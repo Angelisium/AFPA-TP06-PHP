@@ -68,7 +68,7 @@ input, select {
 	flex-wrap: wrap;
 }
 
-.images > img {
+.images img {
 	width: max(min(45vw, 300px), 22vw);
 	height: calc(calc(max(min(45vw, 300px), 22vw) * 2) / 3);
 	margin: 1vw;
@@ -88,5 +88,11 @@ a.img {
 
 div.hover {
 	position: absolute;
-    bottom: 0;
+	bottom: 0;
+	left: 0;
+	margin: 1.5vw 1vw;
+	padding: 0 3vw;
+	color: white;
+	background: rgb(0 0 0 / 71%);
+	right: 0;
 }
