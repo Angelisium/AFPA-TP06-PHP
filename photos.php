@@ -112,4 +112,6 @@
 	} catch (Exception $e) {
 		echo $e->getMessage();
 	}
+
+	require "page.html";
 ?>
