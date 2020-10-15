@@ -96,3 +96,7 @@ div.hover {
 	background: rgb(0 0 0 / 71%);
 	right: 0;
 }
+
+div.hover p {
+	margin: 1vw 0;
+}
