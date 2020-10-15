@@ -11,6 +11,7 @@
 		exit();
 	}
 
+	# Connexion à la base de données
 	try {
 		$db = new PDO("mysql:host=".DB['HOST'].";dbname=".DB['NAME'], DB['USER'], DB['PASSWORD']);
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
