@@ -4,9 +4,10 @@
 	}
 
 	function redirige_sans(string $a): void {
-		/*unset($_GET['table']);
-		$paramètres = http_build_query($_GET);
-		header('Location: ' . $_SERVER['PHP_SELF'] . '?' . );*/
+		unset($_GET[$a]);
+		$paramètres = count($_GET)>0 ? '?' : '';
+		header('Location: ' . $_SERVER['PHP_SELF'] . $paramètres . http_build_query($_GET));
+		exit();
 	}
 
 	try {
