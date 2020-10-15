@@ -35,6 +35,7 @@
 	if(!is_null($sid) && isset($catégories[$sid-1]) && $catégories[$sid-1]['id'] == $sid) {
 		try {
 			$requête = $db->prepare('SELECT * FROM `mes_photos` WHERE `categorie` = ?');
+			$requête->execute(array($sid));
 			$images = $requête->fetchAll();
 			$requête->closeCursor();
 		} catch (Exception $e) {
