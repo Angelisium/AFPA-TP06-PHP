@@ -82,7 +82,7 @@
 	if(!is_null($did) && strtotime($did) != false) {
 		$filtres[] = '`date` = :date';
 		$variables[':date'] = $did;
-	} else {
+	} elseif(!is_null($did)) {
 		redirige_sans('date');
 	}
 
@@ -178,7 +178,7 @@
 					<input type="text" name="tags" id="tags">
 				</div>
 				<div class="group">
-					<button class="btn">reset</button>
+					<button data-reset="date" class="btn">Supprimer la date</button>
 					<button class="btn">Afficher</button>
 				</div>
 			</form>
