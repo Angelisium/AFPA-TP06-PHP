@@ -95,8 +95,8 @@
 			<?php } ?>
 		</section>
 		<section class="box">
+			<h2>Filtre</h2>
 			<form class="group">
-				<h2>Filtre</h2>
 				<?php if(!is_null($tid) && isset($tables[$tid])) { ?>
 					<input type="hidden" name="table" value="<?=$tid?>">
 				<?php } ?>
