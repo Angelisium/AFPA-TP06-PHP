@@ -68,6 +68,7 @@
 	$filtres = array();
 	$variables = array();
 
+	# Ajout d'un filtre par categorie
 	$sid = isset($_GET['show']) ? intval($_GET['show']) : NULL;
 	if(!is_null($sid) && isset($catégories[$sid-1]) && $catégories[$sid-1]['id'] == $sid) {
 		$filtres[] = '`categorie` = :categorie';
