@@ -8,30 +8,30 @@ body {
 
 h1, h2 {
 	line-height: 1.15;
-    font-size: 2em;
-    margin: 0.67em min(8vw, 32px);
-    text-transform: uppercase;
+	font-size: 2em;
+	margin: 0.67em min(8vw, 32px);
+	text-transform: uppercase;
 } h2 {
 	font-size: 1.5em;
 }
 
 .group {
-    text-align: center;
+	text-align: center;
 }
 
 .btn {
 	background-color: black;
-    border: 0;
-    box-shadow: 1px 1px 6px -2px black;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: inline-block;
-    padding: 6px 12px;
-    color: white;
-    font-size: min(4.5vw, 19px);
-    outline: 0;
-    text-decoration: none;
-    text-transform: uppercase;
+	border: 0;
+	box-shadow: 1px 1px 6px -2px black;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: inline-block;
+	padding: 6px 12px;
+	color: white;
+	font-size: min(4.5vw, 19px);
+	outline: 0;
+	text-decoration: none;
+	text-transform: uppercase;
 	font-family: 'Roboto', sans-serif;
 	margin: 12px auto;
 	text-decoration: none;
@@ -41,13 +41,13 @@ h1, h2 {
 
 .box {
 	background: white;
-    border-radius: 2px;
-    box-shadow: 1vw 1vw 3vw -2vw #ffffff4d;
-    padding: min(25px, 2vw) 0;
-    color: #222222;
-    width: min(100vw, 656px);
-    margin: 0 auto;
-    margin-bottom: min(32px, 4vw);
+	border-radius: 2px;
+	box-shadow: 1vw 1vw 3vw -2vw #ffffff4d;
+	padding: min(25px, 2vw) 0;
+	color: #222222;
+	width: min(100vw, 656px);
+	margin: 0 auto;
+	margin-bottom: min(32px, 4vw);
 }
 
 select {
@@ -72,4 +72,11 @@ select {
 	width: max(min(45vw, 300px), 22vw);
 	height: calc(calc(max(min(45vw, 300px), 22vw) * 2) / 3);
 	margin: 1vw;
+}
+
+pre {
+	border: 1px dashed #222222;
+	margin: 0.67em min(8vw, 32px);
+	overflow-x: scroll;
+	padding: 0.67em min(8vw, 32px);
 }
