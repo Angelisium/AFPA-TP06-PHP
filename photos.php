@@ -89,6 +89,7 @@
 						<?php } ?>
 					</tbody>
 				</table>
+				<a href="?<?=http_build_query(['table' => 'hide'] + $_GET)?>">hide</a>
 			<?php } ?>
 		</section>
 		<section class="box">
