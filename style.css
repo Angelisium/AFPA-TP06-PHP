@@ -71,7 +71,6 @@ input, select {
 .images img {
 	width: max(min(45vw, 300px), 22vw);
 	height: calc(calc(max(min(45vw, 300px), 22vw) * 2) / 3);
-	margin: 1vw;
 }
 
 pre {
@@ -84,19 +83,27 @@ pre {
 a.img {
 	text-decoration: none;
 	position: relative;
+	margin: 1vw;
+	line-height: 0;
 }
 
 div.hover {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	margin: 1.5vw 1vw;
 	padding: 0 3vw;
 	color: white;
 	background: rgb(0 0 0 / 71%);
 	right: 0;
+	opacity: 0;
+	transition: opacity 300ms;
+}
+
+a:hover div.hover {
+	opacity: 1;
 }
 
 div.hover p {
+	line-height: initial;
 	margin: 1vw 0;
 }
