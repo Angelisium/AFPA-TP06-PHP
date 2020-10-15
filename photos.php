@@ -77,13 +77,20 @@
 		redirige_sans('show');
 	}
 
+	# Ajout d'un filtre par date
+	$did = isset($_GET['date']) ? $_GET['date'] : NULL;
+	if(!is_null($did) && strtotime($did) != false) {
+		$filtres[] = '`date` = :date';
+		$variables[':date'] = $did;
+	} else {
+		redirige_sans('date');
+	}
+
 	# Construction de la requête SQL
 	$filtres = implode(' AND ', $filtres);
 	if(strlen($filtres)>0) {
 		$sql.= ' WHERE ' . $filtres;
 	}
-
-	$test = $_GET;
 
 	try {
 		$requête = $db->prepare($sql);
@@ -104,13 +111,6 @@
 	</head>
 	<body>
 		<h1>Images</h1>
-		<section class="box">
-			<pre><?=var_export($test, true)?></pre>
-		</section>
-		<section class="box">
-			<h2>Requête SQL :</h2>
-			<pre><?=var_export($sql, true)?></pre>
-		</section>
 		<section class="box">
 			<h2>Tables</h2>
 			<div class="group">
@@ -164,6 +164,9 @@
 						<?php unset($selected); ?>
 					<?php } ?>
 				</select>
+				<?php $value = (!is_null($did)) ? 'value="' . $did . '"' : ''; ?>
+				<input type="date" name="date" id="date" <?=$value?>>
+				<?php unset($value); ?>
 				<input type="text" name="tags" id="tags">
 				<button class="btn">Afficher</button>
 			</form>
