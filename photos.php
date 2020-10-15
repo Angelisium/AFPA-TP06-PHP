@@ -28,11 +28,11 @@
 	}
 
 	$requête = $db->query('SELECT * FROM `mes_categorie`');
-	$CATÉGORIES = $requête->fetchAll();
+	$catégories = $requête->fetchAll();
 	$requête->closeCursor();
 
 	$sid = isset($_GET['show']) ? intval($_GET['show']) : NULL;
-	if(!is_null($sid) && isset($CATÉGORIES[$sid-1]) && $CATÉGORIES[$sid-1]['id'] == $sid) {
+	if(!is_null($sid) && isset($catégories[$sid-1]) && $catégories[$sid-1]['id'] == $sid) {
 
 	}
 ?>
@@ -77,7 +77,7 @@
 				<input type="hidden" name="table" value="<?=$tid?>">
 			<?php } ?>
 			<select name="show" id="show">
-				<?php foreach($CATÉGORIES as $k => $v) { ?>
+				<?php foreach($catégories as $k => $v) { ?>
 					<option value="<?=$v['id']?>" <?=($sid == $v['id']) ? 'selected' : ''?>><?=$v['categorie']?></option>
 				<?php } ?>
 			</select>
