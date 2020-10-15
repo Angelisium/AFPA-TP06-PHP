@@ -13,6 +13,14 @@ body {
 	text-decoration: none;
 }
 
+select {
+    color: #222222;
+    display: inline-block;
+    margin: 12px auto;
+    padding: 6px 12px;
+    outline: 0;
+}
+
 .images {
 	display: flex;
 	justify-content: center;
