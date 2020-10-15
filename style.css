@@ -80,3 +80,13 @@ pre {
 	overflow-x: scroll;
 	padding: 0.67em min(8vw, 32px);
 }
+
+a.img {
+	text-decoration: none;
+	position: relative;
+}
+
+div.hover {
+	position: absolute;
+    bottom: 0;
+}
