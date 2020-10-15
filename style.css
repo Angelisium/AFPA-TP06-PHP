@@ -13,7 +13,13 @@ body {
 	text-decoration: none;
 }
 
-img {
+.images {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.images > img {
 	width: max(min(45vw, 300px), 22vw);
 	height: calc(calc(max(min(45vw, 300px), 22vw) * 2) / 3);
 }
