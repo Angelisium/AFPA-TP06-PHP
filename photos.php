@@ -55,9 +55,11 @@
 		<h1>Images</h1>
 		<section class="box">
 			<h2>Tables</h2>
-			<?php foreach($tables as $k => $v) { ?>
-				<a class="btn" href="?<?=http_build_query(['table' => $k] + $_GET)?>"><?=$v[0]?></a>
-			<?php } ?>
+			<div class="group">
+				<?php foreach($tables as $k => $v) { ?>
+					<a class="btn" href="?<?=http_build_query(['table' => $k] + $_GET)?>"><?=$v[0]?></a>
+				<?php } ?>
+			</div>
 			<?php if(isset($lignes) && isset($entête)) { ?>
 				<table>
 					<thead>
