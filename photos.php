@@ -1,4 +1,18 @@
 <?php
+	/**
+	 * Tous  les  noms  de  variable  utilisés  dans ce script  sont valide  car
+	 * commençant par une lettre¹ ou un souligné (_), suivi de lettres, chiffres
+	 * ou soulignés.
+	 * 
+	 * ¹: Une lettre pouvant être a à z, A à Z, et les octets de 128 à 255.
+	 * 
+	 * Exemple :
+	 *		=> 'è' est un caractère ASCII (étendu) 232.
+	 *		=> 'ê' est un caractère ASCII (étendu) 234.
+	 * 
+	 * Cf. https://www.php.net/manual/fr/language.variables.basics.php
+	 */
+
 	foreach(parse_ini_file("config.ini") as $k => $v) {
 		define($k, $v);
 	}
