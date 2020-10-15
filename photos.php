@@ -12,13 +12,13 @@
 
 	// Nom de variable valide => 'ê' est un caractère ASCII (étendu) 234.
 	$requête = $db->query('SHOW TABLES FROM `TP06`');
-	$TABLES = $requête->fetchAll();
+	$tables = $requête->fetchAll();
 	$requête->closeCursor();
 
 	$tid = isset($_GET['table']) ? $_GET['table'] : NULL;
-	if(!is_null($tid) && isset($TABLES[$tid])) {
+	if(!is_null($tid) && isset($tables[$tid])) {
 		try {
-			$requête = $db->query('SELECT * FROM `' . $TABLES[$tid][0] . '`');
+			$requête = $db->query('SELECT * FROM `' . $tables[$tid][0] . '`');
 			$lignes = $requête->fetchAll();
 			$entête = array_keys($lignes[0]);
 			$requête->closeCursor();
@@ -32,7 +32,9 @@
 	$requête->closeCursor();
 
 	$sid = isset($_GET['show']) ? intval($_GET['show']) : NULL;
-	if(!is_null($sid) && isset($CATÉGORIES[$sid-1]) && $CATÉGORIES[$sid-1]['id'] == $sid) {}
+	if(!is_null($sid) && isset($CATÉGORIES[$sid-1]) && $CATÉGORIES[$sid-1]['id'] == $sid) {
+
+	}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -43,7 +45,7 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<?php foreach($TABLES as $k => $v) { ?>
+		<?php foreach($tables as $k => $v) { ?>
 			<a class="btn" href="?<?=http_build_query(['table' => $k] + $_GET)?>"><?=$v[0]?></a>
 		<?php } ?>
 		<?php if(isset($lignes) && isset($entête)) { ?>
@@ -71,7 +73,7 @@
 			</table>
 		<?php } ?>
 		<form>
-			<?php if(!is_null($tid) && isset($TABLES[$tid])) { ?>
+			<?php if(!is_null($tid) && isset($tables[$tid])) { ?>
 				<input type="hidden" name="table" value="<?=$tid?>">
 			<?php } ?>
 			<select name="show" id="show">
