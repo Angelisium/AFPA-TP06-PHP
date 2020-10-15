@@ -30,6 +30,9 @@
 	$requête = $db->query('SELECT * FROM `mes_categorie`');
 	$CATÉGORIES = $requête->fetchAll();
 	$requête->closeCursor();
+
+	$sid = isset($_GET['show']) ? intval($_GET['show']) : NULL;
+	if(!is_null($sid) && isset($CATÉGORIES[$sid-1]) && $CATÉGORIES[$sid-1]['id'] == $sid) {}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -41,7 +44,7 @@
 	</head>
 	<body>
 		<?php foreach($TABLES as $k => $v) { ?>
-			<a class="btn" href="?table=<?=$k?>"><?=$v[0]?></a>
+			<a class="btn" href="?<?=http_build_query(['table' => $k] + $_GET)?>"><?=$v[0]?></a>
 		<?php } ?>
 		<?php if(isset($lignes) && isset($entête)) { ?>
 			<table>
@@ -73,7 +76,7 @@
 			<?php } ?>
 			<select name="show" id="show">
 				<?php foreach($CATÉGORIES as $k => $v) { ?>
-					<option value="<?=$v['id']?>"><?=$v['categorie']?></option>
+					<option value="<?=$v['id']?>" <?=($sid == $v['id']) ? 'selected' : ''?>><?=$v['categorie']?></option>
 				<?php } ?>
 			</select>
 			<button>Afficher</button>
