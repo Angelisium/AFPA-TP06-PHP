@@ -91,9 +91,11 @@
 			<button>Afficher</button>
 		</form>
 		<?php if(isset($images)) { ?>
-			<?php foreach($images as $k => $v) { ?>
-				<img src="<?=$catégories[$sid-1]['chemin'] . $v['nom_photo']?>" alt="<?=$v['titre']?>">
-			<?php } ?>
+			<section class="images">
+				<?php foreach($images as $k => $v) { ?>
+					<img src="<?=$catégories[$sid-1]['chemin'] . $v['nom_photo']?>" alt="<?=$v['titre']?>">
+				<?php } ?>
+			</section>
 		<?php } ?>
 	</body>
 </html>
