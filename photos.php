@@ -3,6 +3,12 @@
 		define($k, $v);
 	}
 
+	function redirige_sans(string $a): void {
+		/*unset($_GET['table']);
+		$paramètres = http_build_query($_GET);
+		header('Location: ' . $_SERVER['PHP_SELF'] . '?' . );*/
+	}
+
 	try {
 		$db = new PDO("mysql:host=".DB['HOST'].";dbname=".DB['NAME'], DB['USER'], DB['PASSWORD']);
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -26,8 +32,7 @@
 			echo $e->getMessage();
 		}
 	} elseif(!is_null($tid)) {
-		unset($_GET['table']);
-		header('Location: ' . $_SERVER['PHP_SELF'] . '?' . http_build_query($_GET));
+		redirige_sans('table');
 	}
 
 	$requête = $db->query('SELECT * FROM `mes_categorie`');
@@ -45,8 +50,7 @@
 			echo $e->getMessage();
 		}
 	} elseif(!is_null($sid)) {
-		unset($_GET['show']);
-		header('Location: ' . $_SERVER['PHP_SELF'] . '?' . http_build_query($_GET));
+		redirige_sans('show');
 	}
 ?>
 <!DOCTYPE html>
@@ -106,6 +110,7 @@
 						<option value="<?=$v['id']?>" <?=($sid == $v['id']) ? 'selected' : ''?>><?=$v['categorie']?></option>
 					<?php } ?>
 				</select>
+				<input type="text" name="tags" id="tags">
 				<button class="btn">Afficher</button>
 			</form>
 		</section>
