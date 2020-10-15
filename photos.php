@@ -33,7 +33,13 @@
 
 	$sid = isset($_GET['show']) ? intval($_GET['show']) : NULL;
 	if(!is_null($sid) && isset($catégories[$sid-1]) && $catégories[$sid-1]['id'] == $sid) {
-
+		try {
+			$requête = $db->prepare('SELECT * FROM `mes_photos` WHERE `categorie` = ?');
+			$images = $requête->fetchAll();
+			$requête->closeCursor();
+		} catch (Exception $e) {
+			echo $e;
+		}
 	}
 ?>
 <!DOCTYPE html>
