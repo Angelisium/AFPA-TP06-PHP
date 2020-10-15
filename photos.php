@@ -18,13 +18,16 @@
 	$tid = isset($_GET['table']) ? $_GET['table'] : NULL;
 	if(!is_null($tid) && isset($tables[$tid])) {
 		try {
-			$requête = $db->query('SELECT * FROM `' . $tables[$tid][0] . '`');
+			$requête = $db->query("SELECT * FROM `" . $tables[$tid][0] . "`");
 			$lignes = $requête->fetchAll();
 			$entête = array_keys($lignes[0]);
 			$requête->closeCursor();
 		} catch (Exception $e) {
 			echo $e->getMessage();
 		}
+	} elseif(!is_null($tid)) {
+		unset($_GET['table']);
+		header('Location: ' . $_SERVER['PHP_SELF'] . '?' . http_build_query($_GET));
 	}
 
 	$requête = $db->query('SELECT * FROM `mes_categorie`');
@@ -41,6 +44,9 @@
 		} catch (Exception $e) {
 			echo $e->getMessage();
 		}
+	} elseif(!is_null($sid)) {
+		unset($_GET['show']);
+		header('Location: ' . $_SERVER['PHP_SELF'] . '?' . http_build_query($_GET));
 	}
 ?>
 <!DOCTYPE html>
