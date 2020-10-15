@@ -33,7 +33,7 @@
 		echo "Erreur : " . $e->getMessage();
 	}
 
-	# Nom de variable valide => 'ê' est un caractère ASCII (étendu) 234.
+	# Récupération de la liste de toutes les tables dans la DB pour l'affichage.
 	$requête = $db->query('SHOW TABLES FROM `TP06`');
 	$tables = $requête->fetchAll();
 	$requête->closeCursor();
@@ -84,7 +84,9 @@
 			<h2>Tables</h2>
 			<div class="group">
 				<?php foreach($tables as $k => $v) { ?>
-					<a class="btn" href="?<?=http_build_query(['table' => $k] + $_GET)?>"><?=$v[0]?></a>
+					<?php $tv = ['table' => $k]; ?>
+					<a class="btn" href="?<?=http_build_query($tv + $_GET)?>"><?=$v[0]?></a>
+					<?php unset($tv); ?>
 				<?php } ?>
 			</div>
 			<?php if(isset($lignes) && isset($entête)) { ?>
