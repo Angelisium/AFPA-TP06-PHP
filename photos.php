@@ -86,6 +86,8 @@
 		redirige_sans('date');
 	}
 
+	# Ajout des filtre par tags
+	$tags = isset($_GET['tags']) ? $_GET['tags'] : NULL;
 
 	# Construction de la requête SQL
 	$filtres = implode(' AND ', $filtres);
