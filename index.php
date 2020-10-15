@@ -87,7 +87,7 @@
 	}
 
 	# Ajout des filtre par tags
-	$tags = isset($_GET['tags']) ? preg_replace('#[^a-z ]#', '', $_GET['tags']) : NULL;
+	$tags = isset($_GET['tags']) ? preg_replace('#[^a-zA-Z0-9_\x80-\xff ]#', '', $_GET['tags']) : NULL;
 	if(!is_null($tags) && strlen($tags)>0) {
 		$tags = explode(' ', $tags);
 		foreach($tags as $tag) {
