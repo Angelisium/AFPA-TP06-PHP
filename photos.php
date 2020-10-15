@@ -88,7 +88,7 @@
 					<option value="<?=$v['id']?>" <?=($sid == $v['id']) ? 'selected' : ''?>><?=$v['categorie']?></option>
 				<?php } ?>
 			</select>
-			<button>Afficher</button>
+			<button class="btn">Afficher</button>
 		</form>
 		<?php if(isset($images)) { ?>
 			<section class="images">
