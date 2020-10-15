@@ -52,44 +52,51 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<?php foreach($tables as $k => $v) { ?>
-			<a class="btn" href="?<?=http_build_query(['table' => $k] + $_GET)?>"><?=$v[0]?></a>
-		<?php } ?>
-		<?php if(isset($lignes) && isset($entête)) { ?>
-			<table>
-				<thead>
-					<tr>
-						<?php foreach($entête as $k => $v) { ?>
-							<?php if(!is_int($v)) { ?>
-								<th><?=$v?></th>
-							<?php } ?>
-						<?php } ?>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach($lignes as $k => $v) {?>
+		<h1>Images</h1>
+		<section class="box">
+			<h2>Tables</h2>
+			<?php foreach($tables as $k => $v) { ?>
+				<a class="btn" href="?<?=http_build_query(['table' => $k] + $_GET)?>"><?=$v[0]?></a>
+			<?php } ?>
+			<?php if(isset($lignes) && isset($entête)) { ?>
+				<table>
+					<thead>
 						<tr>
-							<?php foreach($v as $k => $v) { ?>
-								<?php if(is_int($k)) {?>
-									<td><?=$v?></td>
+							<?php foreach($entête as $k => $v) { ?>
+								<?php if(!is_int($v)) { ?>
+									<th><?=$v?></th>
 								<?php } ?>
 							<?php } ?>
 						</tr>
-					<?php } ?>
-				</tbody>
-			</table>
-		<?php } ?>
-		<form>
-			<?php if(!is_null($tid) && isset($tables[$tid])) { ?>
-				<input type="hidden" name="table" value="<?=$tid?>">
+					</thead>
+					<tbody>
+						<?php foreach($lignes as $k => $v) {?>
+							<tr>
+								<?php foreach($v as $k => $v) { ?>
+									<?php if(is_int($k)) {?>
+										<td><?=$v?></td>
+									<?php } ?>
+								<?php } ?>
+							</tr>
+						<?php } ?>
+					</tbody>
+				</table>
 			<?php } ?>
-			<select name="show" id="show">
-				<?php foreach($catégories as $k => $v) { ?>
-					<option value="<?=$v['id']?>" <?=($sid == $v['id']) ? 'selected' : ''?>><?=$v['categorie']?></option>
+		</section>
+		<section class="box">
+			<form>
+				<h2>Filtre</h2>
+				<?php if(!is_null($tid) && isset($tables[$tid])) { ?>
+					<input type="hidden" name="table" value="<?=$tid?>">
 				<?php } ?>
-			</select>
-			<button class="btn">Afficher</button>
-		</form>
+				<select name="show" id="show">
+					<?php foreach($catégories as $k => $v) { ?>
+						<option value="<?=$v['id']?>" <?=($sid == $v['id']) ? 'selected' : ''?>><?=$v['categorie']?></option>
+					<?php } ?>
+				</select>
+				<button class="btn">Afficher</button>
+			</form>
+		</section>
 		<?php if(isset($images)) { ?>
 			<section class="images">
 				<?php foreach($images as $k => $v) { ?>
