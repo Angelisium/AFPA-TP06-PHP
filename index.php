@@ -113,5 +113,5 @@
 		echo $e->getMessage();
 	}
 
-	require "page.html";
+	require 'template.php';
 ?>
