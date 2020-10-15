@@ -55,10 +55,12 @@
 		redirige_sans('table');
 	}
 
+	# Récupération de toutes les catégories
 	$requête = $db->query('SELECT * FROM `mes_categorie`');
 	$catégories = $requête->fetchAll();
 	$requête->closeCursor();
 
+	# Création de la requête SQL pour l'affichage des images
 	$sid = isset($_GET['show']) ? intval($_GET['show']) : NULL;
 	if(!is_null($sid) && isset($catégories[$sid-1]) && $catégories[$sid-1]['id'] == $sid) {
 		try {
