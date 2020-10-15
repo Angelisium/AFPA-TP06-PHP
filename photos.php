@@ -157,6 +157,7 @@
 					<input type="hidden" name="table" value="<?=$tid?>">
 				<?php } ?>
 				<div class="group">
+					<label for="show">Catégories :</label>
 					<select name="show" id="show">
 						<option value="">Catégories</option>
 						<?php foreach($catégories as $k => $v) { ?>
@@ -167,11 +168,13 @@
 					</select>
 				</div>
 				<div class="group">
+					<label for="date">Date :</label>
 					<?php $value = (!is_null($did)) ? 'value="' . $did . '"' : ''; ?>
 					<input type="date" name="date" id="date" <?=$value?>>
 					<?php unset($value); ?>
 				</div>
 				<div class="group">
+					<label for="date">Tags :</label>
 					<input type="text" name="tags" id="tags">
 				</div>
 				<div class="group">
