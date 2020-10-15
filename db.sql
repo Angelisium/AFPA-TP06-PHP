@@ -45,7 +45,6 @@ INSERT INTO `TP06`.`mes_photos` (`nom_photo`, `categorie`, `titre`, `hauteur`, `
 ("inca.jpg", 3, "Inca", 426, 640, NULL, NULL),
 ("la-place-rouge.jpg", 3, "La place rouge", 426, 640, NULL, NULL),
 ("stonehenge.jpg", 3, "Stonehenge", 425, 640, NULL, NULL),
-("", 3, "", , , NULL, NULL),
-("", 3, "", , , NULL, NULL),
-("", 3, "", , , NULL, NULL),
-("", 2, "", , , NULL, NULL);
+("tajmahal.jpg", 3, "Tajmahal", 426, 640, NULL, NULL),
+("tour-eiffel.jpg", 3, "Tour Eiffel", 426, 640, NULL, NULL),
+("tower-bridge.jpg", 3, "Tower Bridge", 424, 640, NULL, NULL);
