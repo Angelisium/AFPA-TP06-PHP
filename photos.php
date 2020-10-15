@@ -91,7 +91,9 @@
 			<button>Afficher</button>
 		</form>
 		<?php if(isset($images)) { ?>
-			<pre><?=var_export($images, true)?></pre>
+			<?php foreach($images as $k => $v) { ?>
+				<img src="<?=$catégories[$sid-1]['chemin'] . $v['nom_photo']?>" alt="<?=$v['titre']?>">
+			<?php } ?>
 		<?php } ?>
 	</body>
 </html>
