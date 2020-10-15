@@ -84,14 +84,15 @@
 	}
 
 	$test = $sql;
-/*try {
-$requête = $db->prepare('SELECT * FROM `mes_photos` WHERE `categorie` = ?');
-$requête->execute(array());
-$images = $requête->fetchAll();
-$requête->closeCursor();
-} catch (Exception $e) {
-echo $e->getMessage();
-}*/
+
+	try {
+		$requête = $db->prepare($sql);
+		$requête->execute($variables);
+		$images = $requête->fetchAll();
+		$requête->closeCursor();
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -105,6 +106,10 @@ echo $e->getMessage();
 		<h1>Images</h1>
 		<section class="box">
 			<pre><?=var_export($test, true)?></pre>
+		</section>
+		<section class="box">
+			<h2>Requête SQL :</h2>
+			<pre><?=var_export($sql, true)?></pre>
 		</section>
 		<section class="box">
 			<h2>Tables</h2>
@@ -166,7 +171,7 @@ echo $e->getMessage();
 		<?php if(isset($images)) { ?>
 			<section class="images">
 				<?php foreach($images as $k => $v) { ?>
-					<?php $source = $catégories[$sid-1]['chemin'] . $v['nom_photo']; ?>
+					<?php $source = $catégories[$v['categorie']-1]['chemin'] . $v['nom_photo']; ?>
 					<img src="<?=$source?>" alt="<?=$v['titre']?>">
 					<?php unset($source); ?>
 				<?php } ?>
