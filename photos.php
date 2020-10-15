@@ -23,7 +23,7 @@
 			$entête = array_keys($lignes[0]);
 			$requête->closeCursor();
 		} catch (Exception $e) {
-			echo $e;
+			echo $e->getMessage();
 		}
 	}
 
@@ -38,7 +38,7 @@
 			$images = $requête->fetchAll();
 			$requête->closeCursor();
 		} catch (Exception $e) {
-			echo $e;
+			echo $e->getMessage();
 		}
 	}
 ?>
@@ -89,5 +89,8 @@
 			</select>
 			<button>Afficher</button>
 		</form>
+		<?php if(isset($images)) { ?>
+			<pre><?=var_export($images, true)?></pre>
+		<?php } ?>
 	</body>
 </html>
