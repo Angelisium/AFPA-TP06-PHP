@@ -38,6 +38,9 @@
 	$tables = $requête->fetchAll();
 	$requête->closeCursor();
 
+	# Détermination des variables $lignes et $entête
+	# $ligne => La liste de toute les valeurs dans la table
+	# $entête => La liste des noms de colonne
 	$tid = isset($_GET['table']) ? $_GET['table'] : NULL;
 	if(!is_null($tid) && isset($tables[$tid])) {
 		try {
