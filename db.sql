@@ -40,4 +40,12 @@ INSERT INTO `TP06`.`mes_photos` (`nom_photo`, `categorie`, `titre`, `hauteur`, `
 ("horloge.jpg", 2, "Horloge", 360, 640, NULL, NULL),
 ("i-watch.jpg", 2, "I-Watch", 426, 640, NULL, NULL),
 ("montre-de-poche.jpg", 2, "Montre de poche", 426, 640, NULL, NULL),
-("rolex.jpg", 2, "Rolex", 329, 640, NULL, NULL);
+("rolex.jpg", 2, "Rolex", 329, 640, NULL, NULL),
+("grand-canion.jpg", 3, "Grand canion", 426, 640, NULL, NULL),
+("inca.jpg", 3, "Inca", 426, 640, NULL, NULL),
+("la-place-rouge.jpg", 3, "La place rouge", 426, 640, NULL, NULL),
+("stonehenge.jpg", 3, "Stonehenge", 425, 640, NULL, NULL),
+("", 3, "", , , NULL, NULL),
+("", 3, "", , , NULL, NULL),
+("", 3, "", , , NULL, NULL),
+("", 2, "", , , NULL, NULL);
