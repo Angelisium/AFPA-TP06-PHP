@@ -113,7 +113,9 @@
 					</tbody>
 				</table>
 				<div class="group">
-					<a class="btn" href="?<?=http_build_query(['table' => 'hide'] + $_GET)?>">hide</a>
+					<?php $tv = ['table' => 'hide']; ?>
+					<a class="btn" href="?<?=http_build_query($tv + $_GET)?>">hide</a>
+					<?php unset($tv); ?>
 				</div>
 			<?php } ?>
 		</section>
@@ -126,7 +128,9 @@
 				<select name="show" id="show">
 					<option value="">Catégories</option>
 					<?php foreach($catégories as $k => $v) { ?>
-						<option value="<?=$v['id']?>" <?=($sid == $v['id']) ? 'selected' : ''?>><?=$v['categorie']?></option>
+						<?php $selected = ($sid == $v['id']) ? 'selected' : ''; ?>
+						<option value="<?=$v['id']?>" <?=$selected?>><?=$v['categorie']?></option>
+						<?php unset($selected); ?>
 					<?php } ?>
 				</select>
 				<input type="text" name="tags" id="tags">
@@ -136,7 +140,9 @@
 		<?php if(isset($images)) { ?>
 			<section class="images">
 				<?php foreach($images as $k => $v) { ?>
-					<img src="<?=$catégories[$sid-1]['chemin'] . $v['nom_photo']?>" alt="<?=$v['titre']?>">
+					<?php $source = $catégories[$sid-1]['chemin'] . $v['nom_photo']; ?>
+					<img src="<?=$source?>" alt="<?=$v['titre']?>">
+					<?php unset($source); ?>
 				<?php } ?>
 			</section>
 		<?php } ?>
