@@ -83,7 +83,7 @@
 		$sql.= ' WHERE ' . $filtres;
 	}
 
-	$test = $sql;
+	$test = $_GET;
 
 	try {
 		$requête = $db->prepare($sql);
