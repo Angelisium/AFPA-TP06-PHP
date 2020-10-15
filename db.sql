@@ -10,9 +10,9 @@ CREATE TABLE `TP06`.`mes_categorie` (
 
 INSERT INTO `TP06`.`mes_categorie` (`id`, `categorie`, `chemin`, `passwd`) VALUES
 (1,	"animaux",		"/AFPA-TP06-PHP/images/animaux/",		"ok"),
-(2,	"trains",		"/AFPA-TP06-PHP/images/trains/",		"passe"),
+(2,	"montres",		"/AFPA-TP06-PHP/images/montres/",		"lutin"),
 (3,	"monuments",	"/AFPA-TP06-PHP/images/monuments/",		"passepas"),
-(4,	"montres",		"/AFPA-TP06-PHP/images/montres/",		"lutin");
+(4,	"trains",		"/AFPA-TP06-PHP/images/trains/",		"passe");
 
 CREATE TABLE `TP06`.`mes_photos` (
 	`id` INT NOT NULL AUTO_INCREMENT,
